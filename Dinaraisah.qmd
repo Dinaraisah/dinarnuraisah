@@ -1,0 +1,146 @@
+---
+title: "Hubungan antara Impor Pakaian Bekas dengan Produk Domestik Bruto (PDB) Industri Tekstil dan Pakaian Jadi Tahun 2013-2022 di Indonesia."
+subtitle: "Metode Penelitian Politeknik APP Jakarta"
+author: "Dinar Nur Aisah"
+date: 2023-01-15
+number-sections: true
+format:
+  html: default
+  docx: default
+---
+
+![](poltekapp.jpg)
+
+## Pendahuluan
+
+### Latar belakang
+
+Beberapa tahun belakangan, impor pakaian bekas merajalela di Indonesia. Banyak orang menggunakan pakaian bekas tersebut untuk dijual kembali kepada konsumen. Konsumen tertarik dengan pakaian bekas impor ini karena harganya yang relatif murah dan kenyamanan saat mengenakannya, terutama karena sering kali produk tersebut berasal dari merek terkenal luar negeri. Kegiatan menjual pakaian bekas impor ini disebut Thrifting, dan banyak penjual yang beralih ke usaha ini karena dianggap lebih menguntungkan. Namun, perlu dicatat bahwa kegiatan ini sebenarnya merupakan tindakan ilegal dan merugikan industri tekstil dalam negeri. Dampaknya mencakup kerugian bagi pengusaha, pengurangan jumlah pekerja, bahkan hingga gulung tikar bagi beberapa pelaku usaha.
+Industri tekstil dan pakaian jadi berperan vital dalam pertumbuhan ekonomi suatu negara. Impor pakaian bekas menjadi perhatian karena memengaruhi kinerja industri ini. Penting untuk menjaga daya saing, kesejahteraan masyarakat, kemandirian industri, keberlanjutan lingkungan, dan stabilitas ekonomi nasional. 
+Impor pakaian bekas menjadi faktor yang memengaruhi kinerja industri pakaian jadi. Pertama, industri ini memainkan peran strategis dalam penyerapan tenaga kerja dan memberikan nilai tambah yang signifikan dalam PDB. Kedua, impor pakaian bekas dapat menjadi ancaman terhadap daya saing industri dalam negeri.
+Oleh karena itu, penelitian ini bertujuan membahas hubungan antara impor pakaian bekas dan PDB Industri Tekstil dan Pakaian Jadi dalam rentang waktu 2013 -2022 untuk memberikan wawasan lebih mendalam dalam menjaga keberlanjutan industri, mendukung daya saing, dan berkontribusi pada pertumbuhan ekonomi.
+
+### Ruang lingkup
+
+Dalam penelitian ini penulis mengambil objek penelitian dari Badan Pusat Statistik Indonesia. Ruang lingkup penelitian ini terdapat 2 variabel antara lain impor pakaian bekas dan PDB industri tekstil dan pakaian jadi. Data yang digunakan adalah data yang bersifat time series yaitu dalam kurun waktu 2013-2022, data inilah yang kemudian menjadi objek penelitian.
+
+### Rumusan masalah
+
+1. Apakah terdapat hubungan antara impor pakaian bekas dengan PDB industri tekstil dan pakaian jadi di Indonesia?
+2. Bagaimana dampak impor pakaian bekas terhadap PDB industri tekstil dan pakaian jadi di Indonesia?
+
+### Tujuan dan manfaat penelitian
+
+Tujuan utama dari penelitian ini adalah untuk mengeksplorasi hubungan antara impor pakaian bekas dengan kinerja Produk Domestik Bruto (PDB) industri tekstil dan pakaian jadi. Manfaat penelitian ini diharapkan mampu memberikan kontribusi pemikiran baru dan memperkaya pengetahuan dalam bidang ekonomi. Dengan demikian, hasil penelitian dapat membantu memperluas wawasan pembaca terkait aspek ekonomi yang bersangkutan
+
+### Package
+
+Ini tidak wajib ada di tulisan anda tapi anda dapat menunjukkan Packages yang digunakan antara lain sebagai berikut:
+
+```{r}
+#| warning: false
+#| echo: true
+library(tidyverse)
+library(readxl)
+library(WDI)
+
+```
+
+
+## Studi pustaka
+
+Menurut Andi Susilo (2013), impor dapat diartikan sebagai proses memasukkan barang dari suatu negara (luar negeri) ke wilayah pabean negara lain. Proses ini melibatkan dua negara yang dapat diwakili oleh kepentingan dua perusahaan dari dua negara yang berbeda, dengan melibatkan peraturan dan perundang-undangan yang juga berbeda.
+
+Menurut Gulfira (Dewi, 2020), belanja thrifting adalah tindakan, sementara toko barang bekas disebut sebagai tempat, toko, atau pasar yang menjual barang-barang bekas.
+
+Produk Domestik Bruto, atau dikenal sebagai Gross Domestic Product (GDP) dalam bahasa Inggris, merupakan nilai total barang dan jasa yang dihasilkan dalam suatu negara oleh faktor produksi yang dimiliki oleh warga negara dan pihak asing (Sukirno, 2013:35).
+
+Industri tekstil adalah sektor pengolahan yang mengubah serat menjadi benang atau kain (Asmara, 2013).
+
+## Metode penelitian
+
+### Data
+
+Berikut adalah data yang digunakan sebagai objek penelitian, data dibawah ini merupakan data impor pakaian bekas dan PDB industri tekstil dan pakaian jadi.
+
+| Tahun   | IBB     | PDB    |
+|---------|---------|--------|
+| 2013    | 28.006  | 115.91 |
+| 2014    | 24.028  | 117.72 |
+| 2015    | 37.311  | 112.08 |
+| 2016    | 26.827  | 111.98 |
+| 2017    | 128.474 | 116.26 |
+| 2018    | 107.977 | 126.41 |
+| 2019    | 418.728 | 145.8  |
+| 2020    | 65.914  | 132.85 | 
+| 2021    | 7.973   | 127.43 |
+| 2022    | 26.224  | 139.33 |
+
+Penelitian ini menggunakan data sekunder dengan bentuk data time series 2013-2022, data yang dipakai ialah data yang telah diolah dengan sumber Badan Pusat Statistik Indonesia.
+
+
+```{r}
+#| label: fig-latihan_1_
+library("tidyverse")
+dat<-read_excel('latihan (1).xlsx')
+  head(dat)
+```
+```{r}
+library(readxl)
+library(tidyverse)
+dat<-read_excel('latihan (1).xlsx')
+plot(dat$IBB,dat$PDB)
+```
+### Metode analisis
+
+Metode yang dipilih adalah regresi univariat atau Ordinary Least Square (OLS) dengan 1 variabel independen. Penelitian ini merbaksud mencari hubungan antara IBB dan PDB. Spesifikasi yang dilakukan adalah:
+
+$$
+y_{t}=\beta_0 + \beta_1 x_t+\mu_t
+$$ di mana $y_t$ adalah IBB dan $x_t$ adalah PDB.
+
+## Pembahasan
+
+### Pembahasan masalah
+
+Impor Pakaian Bekas menunjukkan fluktuasi signifikan, dengan puncak impor pada tahun 2019 (418 ton). Meskipun menjadi sumber pakaian murah, dampak terhadap pertumbuhan ekonomi tidak konsisten.
+PDB Industri Tekstil dan Pakaian Jadi mengalami variasi dengan tren umum pertumbuhan hingga tahun 2019, mencapai puncak pada Rp 145,8 triliun. Meskipun terdapat penurunan pada tahun 2020, sektor ini tetap menjadi kontributor penting.
+
+Hubungan antara Impor dan PDB analisis menunjukkan keterkaitan yang lemah, menunjukkan bahwa fluktuasi impor tidak selalu sejalan dengan kinerja industri. Faktor-faktor lain dapat memengaruhi PDB secara lebih signifikan.
+Pengaruh Impor terhadap PDB melalui regresi, ditemukan bahwa impor pakaian bekas tidak memiliki pengaruh yang signifikan terhadap PDB industri tekstil dan pakaian jadi.
+
+Impor Pakaian Bekas memiliki dampak sosial dengan memberikan akses ke pakaian terjangkau, tetapi juga dapat merugikan industri lokal dan menurunkan daya saing.
+PDB Industri Tekstil dan Pakaian Jadi berperan dalam penyerapan tenaga kerja dan memberikan dampak positif terhadap pertumbuhan ekonomi.
+
+
+### Analisis masalah
+
+Hasil regresinya adalah
+
+```{r}
+reg<-lm(IBB~PDB,data=dat)
+summary(reg)
+```
+
+## Kesimpulan
+
+Meskipun impor pakaian bekas dapat memenuhi kebutuhan konsumen, dampaknya terhadap PDB industri tekstil dan pakaian jadi cenderung tidak konsisten.
+Evaluasi dan kebijakan yang lebih baik diperlukan untuk memastikan keseimbangan antara impor yang terkontrol dan pertumbuhan industri dalam negeri.
+
+Perlu dilakukan pemantauan dan evaluasi berkala terhadap dampak impor pakaian bekas terhadap industri dalam negeri.Pemerintah dapat melibatkan masyarakat dalam kampanye edukasi tentang pentingnya mendukung industri lokal. Memahami dampak sosial dan ekonomi dapat membantu mengubah perilaku konsumen.
+
+## Referensi
+
+Javier, Faisal. “Berapa Banyak Baju Bekas Impor yang Masuk Indonesia dalam 10 Tahun Terakhir?” Tempo.co, March 20, 2023. https://data.tempo.co/data/1636/berapa-banyak-baju-bekas-impor-yang-masuk-indonesia-dalam-10-tahun-terakhir.
+
+Krisdamarjati, Yohanes Advent. “Sulitnya Mengatasi Baju Bekas Impor yang Tinggi Peminat,” April 6, 2023. https://www.kompas.id/baca/riset/2023/04/06/sulitnya-mengatasi-baju-bekas-impor-yang-tinggi-peminat.
+
+Ristiani, Nevi. “FENOMENA THRIFTING FASHION DIMASA PANDEMI COVID-19.” Universitas Lampung, 2022. https://digilib.unila.ac.id/63586/2/3.%20SKRIPSI%20TANPA%20BAB%20PEMBAHASAN.pdf.
+
+Sadya, Sarnita. “Kinerja Industri Tekstil Meningkat 9,43% pada 2022.” Dataindonesia.id, April 6, 2023. https://dataindonesia.id/industri-perdagangan/detail/kinerja-industri-tekstil-meningkat-934-pada-2022.
+
+Siragian, Novita Sari Br, Nazla Annisa Gunawan Sirait, Firli Wardahlia, and Khazanah. “Analisis Pengaruh Impor Baju Bekas Terhadap Pengusaha Tekstil Dalam Negeri di Indonesia.” Madani 1, no. 4 (Mei 2023): 171–79. https://doi.org/10.5281/zenodo.7952262.
+
+Syahrial, Rizky. “Saat Pemerintah Larang Impor Pakaian Bekas karena Merusak UMKM, tapi Ditentang Keras Pedagang,” March 20, 2023.
+
+
